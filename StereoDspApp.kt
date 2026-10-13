@@ -75,7 +75,7 @@ fun StereoDspApp(vm: DspViewModel) {
         if (uri != null) vm.open(uri)
     }
 
-    Scaffold(topBar = { TopAppBar(title = { Text("NJ AUDIO DLMS 2.1") }) }) { pad ->
+    Scaffold(topBar = { TopAppBar(title = { Text("Stereo DSP") }) }) { pad ->
         Column(
             Modifier
                 .padding(pad)
@@ -200,11 +200,11 @@ private fun ChannelPanel(
         }
 
         SectionCard("HPF (high-pass)") {
-            PassFilterEditor(settings.hpf, 20f, 20000f) { f -> onChange { it.copy(hpf = f(it.hpf)) } }
+            PassFilterEditor(settings.hpf, 10f, 2000f) { f -> onChange { it.copy(hpf = f(it.hpf)) } }
         }
 
         SectionCard("LPF (low-pass)") {
-            PassFilterEditor(settings.lpf, 20f, 20000f) { f -> onChange { it.copy(lpf = f(it.lpf)) } }
+            PassFilterEditor(settings.lpf, 200f, 20000f) { f -> onChange { it.copy(lpf = f(it.lpf)) } }
         }
 
         SectionCard("EQ parametrik 10 band") {
